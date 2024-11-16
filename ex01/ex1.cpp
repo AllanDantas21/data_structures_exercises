@@ -26,5 +26,7 @@ int main(int argc, char **argv)
     std::cout << all_lines.top() << std::endl;
     all_lines.pop();
   }
+  file.close();
+  return (0);
 }
 
