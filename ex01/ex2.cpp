@@ -3,7 +3,7 @@
 //inversa. Leia as próximas 50 linhas e depois escreva-as em ordem/
 //inversa. Faça isso até que não haja mais linhas deixadas para ler,
 //neste ponto, quaisquer linhas restantes devem ser impressas na ordem inversa.
-
+//
 #include <iostream>
 #include <stack>
 #include <fstream>
@@ -22,8 +22,10 @@ int main(int argc, char **argv)
   while (!file.eof())
   {
     for (int i = 0; i <= 50; i++){
-     std::getline(file, line);
-     stack.push(line);
+      if (file.eof())
+        break ;
+      std::getline(file, line);
+      stack.push(line);
     }
     while(!stack.empty()){
       std::cout << stack.top() << std::endl;
