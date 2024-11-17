@@ -10,7 +10,7 @@
 #include <fstream>
 #include <queue>
 
-void add_with_limit(std::queue<std::string> &queue, std::string &line)
+void add_with_limit(std::queue<std::string> &queue, std::string line)
 {
   if (queue.size() == 42)
     queue.pop();
@@ -23,14 +23,14 @@ int main(int argc, char **argv)
     return (0);
   std::fstream file(argv[1]);
   if(!file)
-    return(std::cerr << "Erro ao abrir o arquivo", 0);
+    return(std::cerr << "Erro ao abrir o arquivo\n", 0);
   std::queue<std::string> queue;
   std::string line;
   while(!file.eof()){
     std::getline(file, line);
-    add_with_limit(queue, line);
     if (line.size() == 0 && queue.size() == 42)
       std::cout << queue.front();
+    add_with_limit(queue, line);
   }
   file.close();
   return (0);
