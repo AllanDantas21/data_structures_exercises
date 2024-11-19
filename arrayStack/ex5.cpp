@@ -1,3 +1,13 @@
+//
+// 5. Leia a entrada uma linha de cada vez e escreva cada linha para a
+// saída somente se você já leu esta linha antes. (O resultado final é que
+// 28
+// você remove a primeira ocorrência de cada linha.) Tome especial
+// cuidado para que um arquivo com um monte de linhas duplicadas
+// não use mais memória do que o necessário para o número de linhas
+// únicas
+//
+
 #include <iostream>
 #include <fstream>
 #include <unordered_set>
@@ -17,7 +27,6 @@ void process_lines(const std::string& filename) {
         if (printed.emplace(line).second)
             std::cout << line << std::endl;
     }
-
     infile.close();
 }
 
