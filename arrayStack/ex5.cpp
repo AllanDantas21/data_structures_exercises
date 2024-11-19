@@ -5,10 +5,8 @@
 
 void process_lines(const std::string& filename) {
     std::ifstream infile(filename);
-    if (!infile.is_open()) {
-        std::cerr << "Erro ao abrir o arquivo: " << filename << std::endl;
-        return;
-    }
+    if (!infile.is_open())
+        return(std::cerr << "Erro ao abrir o arquivo: \n", void());
     std::unordered_set<std::string> seen_once;
     std::unordered_set<std::string> printed;
     std::string line;
